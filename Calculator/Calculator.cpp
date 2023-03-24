@@ -11,6 +11,8 @@ int main()
     int num1;
     int num2;
     int x = 0;
+    int add;
+    int sub;
     cout << "Calculator. please select one of the following: \n";
     cout << "press 1 for Addition \n";
     cout << "Press 2 for substraction \n";
@@ -24,20 +26,18 @@ int main()
                 cin >> num1;
                 cout << "Please enter the second number: \n";
                 cin >> num2;
-                int Add = num1 + num2;
-                cout << "The outcome is " << Add  << endl;
+                add = num1 + num2;
+                cout << "The outcome is " << add  << endl;
                 break;
             case 2:
                 cout << "Please enter the first number: \n";
                 cin >> num1;
                 cout << "Please enter the second number: \n";
                 cin >> num2;
-                int Sub = num1 - num2;
-                cout << "The outcome is " << Sub << endl;
+                sub = num1 - num2;
+                cout << "The outcome is " << sub << endl;
                 break;
-            default:
-                cout << "Error, please select one of the listed options \n";
-                cin >> select;
+           
             
         }
     }
