@@ -1,44 +1,58 @@
 // Calculator.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
-
+#include<string>
 #include <iostream>
 using namespace std;
+class Sum {
+    protected:
+        int Num1;
+        int Num2;
+};
+class Add : public Sum {
+    public:
+        void Set_Num1(int x) {
+            Num1 = x;
+        }
+        void Set_Num2(int y) {
+            Num2 = y;
+        }
+        int Get_Num1() {
+            return Num1;
+        }  
+        int Get_Num2() {
+            return Num2;
+        }
+    
+
+};
 
 int main()
 {
-    
+    int x;
+    int y;
+    Add Add_obj;
     int select;
-    int num1;
-    int num2;
-    int x = 0;
-    int add;
-    int sub;
     cout << "Calculator. please select one of the following: \n";
     cout << "press 1 for Addition \n";
     cout << "Press 2 for substraction \n";
     cout << "Press 3 for multiplication \n";
     cout << "press 4 for division \n";
-    while (x == 0) {
+    cout << "press 5 to quit \n";
+    while (true) {
         cin >> select;
         switch (select) {
             case 1:
-                cout << "Please enter the first number: \n";
-                cin >> num1;
-                cout << "Please enter the second number: \n";
-                cin >> num2;
-                add = num1 + num2;
-                cout << "The outcome is " << add  << endl;
+                cin >> x;
+                Add_obj.Set_Num1(x);
+                cin >> y;
+                Add_obj.Set_Num2(y);
+                cout << "The answer is " << Add_obj.Get_Num1() + Add_obj.Get_Num2();
                 break;
-            case 2:
-                cout << "Please enter the first number: \n";
-                cin >> num1;
-                cout << "Please enter the second number: \n";
-                cin >> num2;
-                sub = num1 - num2;
-                cout << "The outcome is " << sub << endl;
-                break;
-           
             
+            default:
+                cout << "Error please select one of the listed options \n";
+                cin >> select;
+                break;
         }
     }
 }
