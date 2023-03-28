@@ -25,12 +25,18 @@ class Add : public Sum {
     
 
 };
+class Sub : public Add {};
+class Mult : public Add{};
+class Div : public Add{};
 
 int main()
 {
     int x;
     int y;
     Add Add_obj;
+    Sub Sub_obj;
+    Mult Mult_obj;
+    Div Div_obj;
     int select;
     cout << "Calculator. please select one of the following: \n";
     cout << "press 1 for Addition \n";
@@ -42,13 +48,44 @@ int main()
         cin >> select;
         switch (select) {
             case 1:
+                cout << "Type your first number: \n";
                 cin >> x;
                 Add_obj.Set_Num1(x);
+                cout << "Type your second number: \n";
                 cin >> y;
                 Add_obj.Set_Num2(y);
                 cout << "The answer is " << Add_obj.Get_Num1() + Add_obj.Get_Num2();
                 break;
-            
+            case 2:
+                cout << "Type your first number: \n";
+                cin >> x;
+                Sub_obj.Set_Num1(x);
+                cout << "Type your second number: \n";
+                cin >> y;
+                Sub_obj.Set_Num2(y);
+                cout << "The answer is " << Sub_obj.Get_Num1() - Sub_obj.Get_Num2();
+                break;
+            case 3:
+                cout << "Type your first number: \n";
+                cin >> x;
+                Mult_obj.Set_Num1(x);
+                cout << "Type your second number: \n";
+                cin >> y;
+                Mult_obj.Set_Num2(y);
+                cout << "The answer is " << Mult_obj.Get_Num1() * Mult_obj.Get_Num2();
+                break;
+            case 4:
+                cout << "Type your first number: \n";
+                cin >> x;
+                Div_obj.Set_Num1(x);
+                cout << "Type your second number: \n";
+                cin >> y;
+                Div_obj.Set_Num2(y);
+                cout << "The answer is " << Div_obj.Get_Num1() / Div_obj.Get_Num2();
+                break;
+            case 5:
+                cout << "Thank you for using the app. \n";
+                break;
             default:
                 cout << "Error please select one of the listed options \n";
                 cin >> select;
