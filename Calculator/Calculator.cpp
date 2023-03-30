@@ -7,6 +7,8 @@ class Sum {
     protected:
         int Num1;
         int Num2;
+        int Exp;
+        int Root;
 };
 class Add : public Sum {
     public:
@@ -16,8 +18,8 @@ class Add : public Sum {
         void Set_Num2(int y) {
             Num2 = y;
         }
-        int Get_Num1() {
-            return Num1;
+        int Get_Ans() {
+            return Num1 + Num2;
         }  
         int Get_Num2() {
             return Num2;
@@ -25,9 +27,25 @@ class Add : public Sum {
     
 
 };
-class Sub : public Add {};
-class Mult : public Add{};
-class Div : public Add{};
+class Sub : public Add {
+    public:
+    int Get_Ans() {
+        return Num1 - Num2;
+    }
+};
+class Mult : public Add{
+    public: 
+    int Get_Ans() {
+        return Num1 * Num2;
+    }
+};
+class Div : public Add{
+    public:
+    int Get_Ans() {
+        return Num1 / Num2;
+    }
+};
+
 
 int main()
 {
@@ -54,7 +72,7 @@ int main()
                 cout << "Type your second number: \n";
                 cin >> y;
                 Add_obj.Set_Num2(y);
-                cout << "The answer is " << Add_obj.Get_Num1() + Add_obj.Get_Num2();
+                cout << "The answer is " << Add_obj.Get_Ans()<<"\n";
                 break;
             case 2:
                 cout << "Type your first number: \n";
@@ -63,7 +81,7 @@ int main()
                 cout << "Type your second number: \n";
                 cin >> y;
                 Sub_obj.Set_Num2(y);
-                cout << "The answer is " << Sub_obj.Get_Num1() - Sub_obj.Get_Num2();
+                cout << "The answer is " << Sub_obj.Get_Ans()<<"\n";
                 break;
             case 3:
                 cout << "Type your first number: \n";
@@ -72,7 +90,7 @@ int main()
                 cout << "Type your second number: \n";
                 cin >> y;
                 Mult_obj.Set_Num2(y);
-                cout << "The answer is " << Mult_obj.Get_Num1() * Mult_obj.Get_Num2();
+                cout << "The answer is " << Mult_obj.Get_Ans()<<"\n";
                 break;
             case 4:
                 cout << "Type your first number: \n";
@@ -81,7 +99,7 @@ int main()
                 cout << "Type your second number: \n";
                 cin >> y;
                 Div_obj.Set_Num2(y);
-                cout << "The answer is " << Div_obj.Get_Num1() / Div_obj.Get_Num2();
+                cout << "The answer is " << Div_obj.Get_Ans()<<"\n";
                 break;
             case 5:
                 cout << "Thank you for using the app. \n";
