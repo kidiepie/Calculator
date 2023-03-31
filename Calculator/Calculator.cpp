@@ -2,66 +2,77 @@
 //
 #include<string>
 #include <iostream>
+#include <cmath>
 using namespace std;
 class Sum {
     protected:
-        int Num1;
-        int Num2;
-        int Exp;
-        int Root;
+        double Num1;
+        double Num2;
+        double Exp;
 };
 class Add : public Sum {
     public:
-        void Set_Num1(int x) {
+        void Set_Num1(double x) {
             Num1 = x;
         }
-        void Set_Num2(int y) {
+        void Set_Num2(double y) {
             Num2 = y;
         }
-        int Get_Ans() {
+        double Get_Ans() {
             return Num1 + Num2;
-        }  
-        int Get_Num2() {
-            return Num2;
         }
-    
-
 };
 class Sub : public Add {
     public:
-    int Get_Ans() {
+    double Get_Ans() {
         return Num1 - Num2;
     }
 };
 class Mult : public Add{
     public: 
-    int Get_Ans() {
+    double Get_Ans() {
         return Num1 * Num2;
     }
 };
 class Div : public Add{
     public:
-    int Get_Ans() {
+    double Get_Ans() {
         return Num1 / Num2;
     }
+};
+class Roots : public Add {
+    public:
+        double Get_Ans() {
+            return sqrt(Num1);
+    }
+};
+class Exp : public Add {
+    public:
+        double Get_Ans() {
+            return pow(Num1, Num2);
+        }
 };
 
 
 int main()
 {
-    int x;
-    int y;
+    double x;
+    double y;
     Add Add_obj;
     Sub Sub_obj;
     Mult Mult_obj;
     Div Div_obj;
+    Roots rts_obj;
+    Exp Exp_obj;
     int select;
     cout << "Calculator. please select one of the following: \n";
     cout << "press 1 for Addition \n";
     cout << "Press 2 for substraction \n";
     cout << "Press 3 for multiplication \n";
     cout << "press 4 for division \n";
-    cout << "press 5 to quit \n";
+    cout << "Press 5 for Square root\n";
+    cout << "Press 6 for exponents\n";
+    cout << "press 7 to quit \n";
     while (true) {
         cin >> select;
         switch (select) {
@@ -102,6 +113,21 @@ int main()
                 cout << "The answer is " << Div_obj.Get_Ans()<<"\n";
                 break;
             case 5:
+                cout << "Type the number you want to square root of: \n";
+                cin >> x;
+                rts_obj.Set_Num1(x);
+                cout << "The answer is " << rts_obj.Get_Ans() << "\n";
+                break;
+            case 6:
+                cout << "Type your number: \n";
+                cin >> x;
+                Exp_obj.Set_Num1(x);
+                cout << "Type your Exponent: \n";
+                cin >> y;
+                Exp_obj.Set_Num2(y);
+                cout << "The answer is " << Exp_obj.Get_Ans() << "\n";
+                break;
+            case 7:
                 cout << "Thank you for using the app. \n";
                 break;
             default:
